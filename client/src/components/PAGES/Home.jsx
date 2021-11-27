@@ -1,19 +1,18 @@
 import axios from 'axios';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Header, Sidebar } from '../index';
-import Posts from '../Posts';
-import axios from 'axios';
+import { Header, Sidebar, Posts } from '../index';
 
 const Home = () => {
+    const [posts, setPosts] = useState([]);
 
-const [posts, setPosts] = useState([]);
-
-useEffect(() => {
-const fetchPots= async () => {
-    axios.get("/")
-}
-},[])
+    useEffect(() => {
+        const fetchPots = async () => {
+            const res = await axios.get('/');
+            console.log(res);
+        };
+        fetchPots();
+    }, []);
 
     return (
         <div>
